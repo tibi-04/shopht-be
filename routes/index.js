@@ -16,7 +16,6 @@ const getCategoryProduct = require("../controller/product/getCategoryProductOne"
 const getCategoryWiseProduct = require("../controller/product/getCategoryWiseProduct");
 const getProductDetails = require("../controller/product/getProductDetails");
 const addToCartController = require("../controller/user/addToCartController");
-const countAddToCartProduct = require("../controller/user/CountAddToCartProduct");
 const addToCartViewProduct = require("../controller/user/addToCartViewProduct");
 const updateAddToCartProduct = require("../controller/user/updateAddToCartProduct");
 const deleteAddToCartProduct = require("../controller/user/deleteAddToCartProduct");
@@ -30,13 +29,14 @@ const verifyOtpController = require("../controller/user/verifyOtp");
 const deleteProductController = require("../controller/product/deleteProductController");
 const revenueChartController = require("../controller/order/revenueChartController");
 const getOrdersByUser = require("../controller/order/getOrdersByUser");
+const countAddToCartProduct = require("../controller/user/countAddToCartProduct");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
 router.get("/user-details", authToken, userDetailsController);
 router.get("/userLogout", userLogout);
 
-// 
+//
 router.get("/tat-ca-nguoi-dung", authToken, allUsers);
 router.post("/cap-nhat-nguoi-dung", authToken, updateUser);
 
@@ -51,7 +51,7 @@ router.get("/tim-kiem-san-pham", searchProduct);
 router.post("/loc-san-pham", filterProductController);
 router.delete("/xoa-san-pham", deleteProductController);
 
-// 
+//
 router.post("/them-vao-gio-hang", authToken, addToCartController);
 router.get("/so-luong-gio-hang", authToken, countAddToCartProduct);
 router.get("/gio-hang", authToken, addToCartViewProduct);
